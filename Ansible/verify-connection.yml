@@ -1,0 +1,20 @@
+---
+- hosts: Jenkins
+  gather_facts: no
+  remote_user: ec2-user
+  become: yes
+  tasks:
+    - name: staring SSH
+      debug:
+        msg: "Running SSH connection test"
+
+    - name: SSH to instance
+      wait_for_connection:
+        timeout: 600
+        delay: 1
+        sleep: 5
+
+    - name: Get User
+      shell: whoami
+      become: yes
+      become_user: ec2-user
