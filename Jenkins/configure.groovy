@@ -17,7 +17,7 @@ pipeline {
         stage('Execute Ansible') {
             steps {
                 // Execute Ansible playbook
-                ansible-playbook '/var/lib/jenkins/workspace/pipe/Ansible/playbook/verify-connection.yml' -vv
+                ansible-playbook '/var/lib/jenkins/workspace/Ansible/pipe/Ansible/playbook/verify-connection.yml' -vv
             }
         }
     }
