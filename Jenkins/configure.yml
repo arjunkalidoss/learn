@@ -7,10 +7,9 @@ ansible:
   dir: Ansible
   cmd: ansible-playbook -i inventory/${var.env}
   playbookDir: playbook
-  playbook:
+  playbookList:
     -
     - verify-connection.yml
 
   PreTask:
   PostTask:
-  
