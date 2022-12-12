@@ -1,5 +1,6 @@
 pipeline {
     agent any
+
     stages {
           stage('Hello') {
               steps {
@@ -10,15 +11,16 @@ pipeline {
           stage('Build') {
               steps {
                   // Get some code from a GitHub repository
-                  git branch: 'main',
-                      url: 'https://github.com/arjunkalidoss/learn.git'
+                  git branch: 'main', url: 'https://github.com/arjunkalidoss/learn.git'
               }
           }
+
           stage('Execute Ansible') {
               steps {
                   // Execute Ansible playbook
                   ansible-playbook verify-connection.yml -vv
               }
           }
-        }
+
+      }
 }
