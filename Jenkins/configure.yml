@@ -1,0 +1,16 @@
+global:
+  jenkinsAgent: any
+
+
+ansible:
+  stageName: Ansible
+  dir: Ansible
+  cmd: ansible-playbook -i inventory/${var.env}
+  playbookDir: playbook
+  playbook:
+    -
+    - verify-connection.yml
+
+  PreTask:
+  PostTask:
+  
