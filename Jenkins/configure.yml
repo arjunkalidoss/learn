@@ -5,7 +5,7 @@ global:
 ansible:
   stageName: Ansible
   dir: Ansible
-  cmd: ansible-playbook -i inventory/${var.env}
+  cmd: ansible-playbook -i Inventory/${var.env}
   playbookDir: playbook
   playbookList:
     -
