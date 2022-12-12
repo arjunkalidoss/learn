@@ -4,7 +4,7 @@ global:
 
 ansible:
   stageName: Ansible
-  dir: Ansible
+  dir: /var/lib/jenkins/workspace/pipe/Ansible
   cmd: ansible-playbook -i Inventory/${var.env}
   playbookDir: playbook
   playbookList:
