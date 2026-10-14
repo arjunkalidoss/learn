@@ -1,0 +1,37 @@
+name: Pre-Process-Post with Approvals
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  pre:
+    name: Pre
+    runs-on: ubuntu-latest
+    environment: pre-approval        # optional reviewers - first step
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run pre step
+        run: echo "Running pre step..."
+
+  process:
+    name: Process
+    needs: pre
+    runs-on: ubuntu-latest
+    environment: process-approval    # required reviewers => manual approval before this job starts
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run process step
+        run: echo "Running process step..."
+
+  post:
+    name: Post
+    needs: process
+    runs-on: ubuntu-latest
+    environment: post-approval       # required reviewers => manual approval before this job starts
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run post step
+        run: echo "Running post step..."
